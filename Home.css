@@ -804,7 +804,7 @@ span {
 }
 
 @media (max-width: 767px) {}
-.allcards .box1, .box2, .box3 a{
+.allcards .box1, .box2, .box3 {
   padding: 2rem;
 }
 
