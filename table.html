@@ -420,3 +420,64 @@ FOREIGN KEY (STD_Id) REFERENCES students2(stdId)
 );
 
 select * from lang_std1;
+
+
+
+
+
+
+
+
+
+
+use item;
+
+
+create table comp (
+    id INT primary key auto_increment,
+    Cname VARCHAR(70) UNIQUE,
+    Cyear INT unique
+);
+
+
+insert into comp (Cname, Cyear) values
+('Lamborgini', 2018),
+('Bugatti', 2016),
+('toyota', 2017),
+('nissan', 2015),
+('Honda', 2024),
+('Ferrari', 2020),
+('Mercedes', 2021),
+('corolla', 2019),
+('ford', 2003);
+
+
+create table cars (
+id INT PRIMARY KEY,
+Carname VARCHAR(70),
+model INT,
+color VARCHAR(40),
+price INT,
+foreign key (Carname) REFERENCES comp(Cname),
+foreign key (model) REFERENCES comp(Cyear)
+);
+
+
+insert into cars (id, Carname, model, color, price) values
+(1, 'Bugatti', 2018, 'red', 234000),
+(2, 'toyota', 2016, 'blue', 200000),
+(3, 'nissan', 2017, 'black', 180000),
+(4, 'Honda', 2015, 'white', 150000),
+(5, 'Ferrari', 2020, 'yellow', 190000),
+(6, 'Mercedes', 2021, 'green', NULL),
+(7, 'corolla', 2021, 'green', NULL),  
+(8, 'ford', 2019, 'silver', 220000);
+
+
+select * from cars;
+
+select c.id, c.Carname as Car from cars as c
+inner join comp as comp on c.Carname = comp.Cname;
+
+select c.id, c.Carname, c.model as Car from cars as c
+inner join comp as comp on c.model = comp.Cyear;
