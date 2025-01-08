@@ -359,3 +359,64 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+create database lang_institute;
+
+
+
+use lang_institute;
+
+
+create table students2(
+  stdId int primary key auto_increment,
+  stdPhone varchar(70),
+  batchName varchar(60)
+);
+
+INSERT INTO students2 (stdPhone,batchName) 
+VALUES ('1234567890', 'Batch A'),
+('9876543210', 'Batch B'),
+('5551234567', 'Batch C'),
+('6789012345', 'Batch D'),
+('2345678901', 'Batch E'),
+('3456789012', 'Batch F');
+
+select * from students2;
+
+
+
+create table lang_std1(
+stdId int primary key auto_increment,
+stdName varchar(50),
+stdEmail varchar(40),
+stdAddr  varchar(70),
+STD_Id int,
+for
+FOREIGN KEY (STD_Id) REFERENCES students2(stdId)
+
+
+);
+
+select * from lang_std1;
